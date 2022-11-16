@@ -8,6 +8,11 @@ router.get('/',(req,res)=>{
     res.render('index');
 });
 
+//ruta para el login
+router.get('/login',(req,res)=>{
+    res.render('login');
+});
+
 /* -----------------ALUMNOS--------------------- */
 
 //ruta para mostrar datos de alumnos
