@@ -17,6 +17,7 @@ exports.addusuario = (req,res)=>{
     }else{
         car = "002";
     }
+
     conexion.query('insert into usuarios set ?',{nombre:nom,
     apellido:ape,id_cargo:car,username:user,password:pass},(error)=>{
         if(error){
@@ -25,6 +26,44 @@ exports.addusuario = (req,res)=>{
             res.redirect('/registro');
         }
     });
+}
+
+exports.login = (req,res)=>{
+    const user = req.body.username;
+    const pass = req.body.password;
+    
+    const usuario = conexion.query('SELECT * FROM usuarios WHERE username = ?',{username:user},(error)=>{
+        if(error){
+            console.log(error);
+        }else{
+            res.redirect('/login');
+        }
+
+        // if(userdata.length > 0) {
+        //     userdata.forEach(element => {
+        //         if(user != element.password) {
+        //             res.render('login.ejs', console.log('Contraseña incorrecta'));
+        //         }else {
+
+        //             req.session.loggedin = true;
+        //             req.session.name = element.username;
+
+        //             res.redirect('/');
+        //         }
+        //     });
+        // }else{
+        //     res.render('login.ejs', console.log('Usuario no existe'));
+        // }
+    });
+
+    // usuario.forEach(element => {
+        
+    //     if(pass != element.password) {
+    //         res.render('login.ejs', console.log('Contraseña incorrecta'));
+    //     }else{
+    //         res.redirect('/');
+    //     }
+    // });
 }
 
 exports.updatealumnos = (req,res) =>{

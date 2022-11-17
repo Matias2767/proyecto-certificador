@@ -60,6 +60,7 @@ const crud = require('./controllers/crud');
 router.post('/addusuario',crud.addusuario);
 //ruta para editar empleados
 router.post('/updatealumnos',crud.updatealumnos);
+router.post('/login',crud.login);
 
 
 module.exports = router;
