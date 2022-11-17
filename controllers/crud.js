@@ -32,3 +32,31 @@ exports.updatealumnos = (req,res) =>{
         }
     });
 }
+//----------------------------------------------------
+exports.addproducto = (req,res)=>{
+    const cod = req.body.cod;
+    const nom = req.body.nom;
+    const pre = req.body.pre;
+    const stock = req.body.stock;
+    conexion.query('insert into producto set ?',{id_prod:cod,producto:nom,precio:pre,stock:stock},(error)=>{
+        if(error){
+            console.log(error);
+        }else{
+            res.redirect('/productos');
+        }
+    })
+}
+exports.updateproducto = (req,res)=>{
+    const cod = req.body.cod;
+    const nom = req.body.nom;
+    const pre = req.body.pre;
+    const stock = req.body.stock;
+    conexion.query('update producto set ? where id_prod = ?',[{id_prod:cod,producto:nom,precio:pre,stock:stock},cod],(error)=>{
+        if(error){
+            console.log(error);
+        }else{
+            res.redirect('/productos');
+        }
+    });    
+}
+    
