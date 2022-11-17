@@ -8,8 +8,8 @@ body{
 .image{
     background: url(../public/fotos/legos.jpg) no-repeat;
     background-size: cover;
-    height: 969px;
-    width: 960px;
+    height: 939px;
+    width: 50%;
 }
 .cont{
     width: 55%;
