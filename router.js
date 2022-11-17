@@ -21,9 +21,9 @@ router.get('/mr_alumnos',(req,res)=>{
     });
 });
 
-//ruta para nuevos alumnos
-router.get('/mr_alumnosNuevo',(req,res)=>{
-    res.render('mr_alumnosNuevo');
+//ruta para nuevos usuarios
+router.get('/registro',(req,res)=>{
+    res.render('registro');
 });
 
 //ruta para editar alumnos
@@ -91,11 +91,9 @@ router.get('/productodelete/:id',(req,res)=>{
     });
 });
 
-
-
-//ruta para nuevos empleados
+//ruta para nuevos usuarios
 const crud = require('./controllers/crud');
-router.post('/addalumnos',crud.addalumnos);
+router.post('/addusuario',crud.addusuario);
 //ruta para editar empleados
 router.post('/updatealumnos',crud.updatealumnos);
 //------------------------------------------------------
